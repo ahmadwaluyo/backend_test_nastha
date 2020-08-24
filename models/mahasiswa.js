@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Mahasiswa.hasMany(models.Nilai, { foreignKey: "ID_Mahasiswa", targetKey: "ID"})
+      Mahasiswa.hasMany(models.Nilai, { foreignKey: "ID_Mahasiswa"})
       // define association here
     }
   };
@@ -19,13 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     ID: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      allowNull: false,
-      validate: {
-        unique: {
-          args: true,
-          msg: "ID must be unique"
-        }
-      }
+      allowNull: false
     },
     Nama: {
       type: DataTypes.STRING,
@@ -42,8 +36,8 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         len: {
-          args: [10],
-          msg: "Alamat length must be at least 10 characters"
+          args: [5],
+          msg: "Alamat length must be at least 5 characters"
         }
       }
     }

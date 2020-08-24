@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Nilai.belongsTo(models.Mahasiswa);
-      Nilai.belongsTo(models.MataKuliah);
+      Nilai.belongsTo(models.Mahasiswa, { foreignKey: "ID_Mahasiswa", as: "Mahasiswa"});
+      Nilai.belongsTo(models.MataKuliah, { foreignKey: "ID_MataKuliah", as: "MataKuliah"});
     }
   };
   Nilai.init({
@@ -36,7 +36,7 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "cascade",
       onUpdate: "cascade"
     },
-    Nilai: DataTypes.STRING
+    Nilai: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: "Nilai",

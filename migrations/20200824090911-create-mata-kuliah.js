@@ -12,12 +12,7 @@ module.exports = {
       },
       ID_Mahasiswa: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Mahasiswa",
-          key: "ID"
-        },
-        onDelete: "cascade",
-        onUpdate: "cascade"
+        allowNull: false
       }
     });
   },

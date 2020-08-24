@@ -10,24 +10,14 @@ module.exports = {
       },
       ID_Mahasiswa: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "Mahasiswa",
-          key: "ID"
-        },
-        onDelete: "cascade",
-        onUpdate: "cascade"
+        allowNull: false
       },
       ID_MataKuliah: {
         type: Sequelize.INTEGER,
-        references: {
-          model: "MataKuliah",
-          key: "ID"
-        },
-        onDelete: "cascade",
-        onUpdate: "cascade"
+        allowNull: false
       },
       Nilai: {
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       }
     });
   },
